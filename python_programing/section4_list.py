@@ -35,7 +35,7 @@ len(l)
 7
 # リストのタイプ
 type(l)
-<class 'list'>
+# <class 'list'>
 
 # 1文字1文字取り出してリストに変換
 list('abcdefg')
