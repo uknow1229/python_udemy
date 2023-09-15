@@ -199,5 +199,155 @@ while True:
     count += 1
 
 # while else文
+count = 0
+while count < 5:
+    if count == 1:
+        break
+    print(count)
+    count += 1
+# whileでループしている中でbreakで抜けなければこちらが出力される
+else:
+    print('done')
 
+# whileループを何かのきっかけでbreakした場合には実行したくないといった場面で使う！
+
+# ------------------------------------------------
+
+# input関数
+
+# コンソールから何かを入力して、その値が違うなら
+# 次のループに入って違うものを入れるという風にするには
+# whileループとinput関数を使うケースが多い！
+
+while True:
+    word = input('Enter')
+    num = int(word)
+    if num == 100:
+        break
+    print('next')
+
+# ------------------------------------------------
+
+# for文
+
+some_list = [1, 2, 3, 4, 5]
+
+i = 0
+while i < len(some_list)
+    print(some_list[i])
+    i += 1
+
+# forループの場合
+
+# 反復処理をするものをイテレーターというが、
+# そういうイテレーターをinで次々入れていって
+# ループを回してそれがなくなった時点で終了するといったことが可能！
+
+for i in some_list:
+    print(i)
+
+# 文字列でもできるよ
+
+for s in 'abcde':
+    print(s)
+
+for word in ['My', 'name', 'is', 'Mike']:
+    # breakもcontinueも使えるよ
+    if word == 'name':
+        break
+    print(word)
+
+# ------------------------------------------------
+
+# for else文
+
+for fruit in ['apple', 'banana', 'orange']:
+    if fruit == 'banana':
+        print('stop eating')
+        break
+    print(fruit)
+else:
+    print('I ate all!')
+
+# ------------------------------------------------
+
+# range関数(forループと一緒によく使われる)
+
+num_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+for i in num_list:
+    print(i)
+
+for i in range(10):
+    print(i)
+
+# 1つ目の引数 = index
+# 3つ目の引数 = 3個飛ばし
+for i in range(2, 10, 3):
+    print(i)
+
+for i in range(10):
+    print(i, 'hello')
+
+# iはいらないよって時は_に入れる
+# _を見れば、forループの中ではインデックス番号が使われないということが
+# すぐに分かるので_を使うとコードがわかりやすくなる◎
+
+for _ in range(10):
+    print('hello')
+
+# ------------------------------------------------
+
+# enumerate関数
+
+for fruit in ['apple', 'banana', 'orange']:
+    print(i, fruit)
+    i += 1
+# 0 apple
+# 1 banana
+# 2 orange
+
+# こう書けるよ、結構使われるよ
+for i, fruit in enumerate(['apple', 'banana', 'orange']):
+    print(i, fruit)
+
+# ------------------------------------------------
+
+# zip関数
+
+days = ['Mon', 'Tue', 'Wed']
+fruits = ['apple', 'banana', 'orange']
+drinks = ['coffee', 'tea', 'beer']
+
+# iがいろんなところにあって読みにくい
+for i in range(len(days)):
+    print(days[i], fruits[i], drinks[i])
+
+# Mon apple coffee
+# Tue banana tea
+# Wed orange beer
+
+# zip関数を使って綺麗に書けるよ、直感的に分かりやすい！
+for day, fruit, drink in zip(days, fruits, drinks):
+    print(day, fruit, drink)
+
+# ------------------------------------------------
+
+# 辞書をfor文で処理する
+
+d = {'x': 100, 'y': 200}
+
+# keyとvalue両方出力したい
+# itemsメソッド
+# kに始めの変数xが入って、100というvalueがvに入る
+
+for k, v in d.items():
+    print(k, ':', v)
+x : 100
+y : 200
+
+# d.itemsは何を返しているのか
+print(d.items())
+
+# dict_items([('x', 100), ('y', 200)])
 
