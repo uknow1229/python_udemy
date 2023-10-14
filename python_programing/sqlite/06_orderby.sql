@@ -1,4 +1,8 @@
 -- SQLite
+
+-- ORDER BY COLUMN (ASC): カラムを昇順にする
+-- ORDER BY COLUMN (DESC): カラムを降順にする
+
 SELECT * FROM Persons;
 
 -- ORDER BY
