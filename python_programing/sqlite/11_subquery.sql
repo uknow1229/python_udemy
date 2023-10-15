@@ -1,4 +1,10 @@
 -- SQLite
+
+-- 副問合せ: SQLの中に別のSQL(SELECT)を追加する
+-- 1. FROM句で副問合せを指定する
+-- 2. IN句の中に副問合せを入れる
+-- 3. SELECTの取得結果にSELECTを含める
+
 SELECT
 *
 FROM
