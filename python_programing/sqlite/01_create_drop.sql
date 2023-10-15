@@ -1,4 +1,6 @@
 -- SQLite
+-- CASE: 選択した結果から条件を判定して満たす値を返す
+
 --CREATE
 CREATE TABLE Persons(
     PersonId INTEGER,
