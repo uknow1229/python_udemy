@@ -3,6 +3,17 @@ from io import StringIO
 from datetime import datetime
 from azure.storage.blob import BlobClient
 
+def orchestrator_function(context: df.DurableOrchestrationContext):
+
+    # 1つ目のアクティビティ関数を呼び出す
+    cleanse_and_upload = yield context.call_activity('FirstActivityFunction', None)
+
+    # 2つ目のアクティビティ関数を呼び出し、取得したデータを引数として渡す
+    result_from_second_activity = yield context.call_activity('SecondActivityFunction', cleanse_and_upload)
+
+    return result_from_second_activity
+
+
 def cleanse_and_upload(blob_filename: str, csv_content: str) -> None:
     # CSVを解析
     reader = csv.DictReader(StringIO(csv_content))
