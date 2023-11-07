@@ -3,6 +3,23 @@ from io import StringIO
 from datetime import datetime
 from azure.storage.blob import BlobClient
 
+
+def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    # Durable Functions の操作を行うためのクライアントを初期化
+
+    # APIからファイル名を取得
+    blob_filename = req.params.get('blob_filename')
+    if not blob_filename:
+        return func.HttpResponse("blob_filename parameter is required", status_code=400)
+
+    instance_id = client.start_new("orchestrator_function", None, blob_filename)
+    # client.start_new() はオーケストレーター関数を開始するためのメソッド
+    # req.route_params['functionName'] で指定されたオーケストレーター関数を開始
+    
+    return client.create_check_status_response(req, instance_id)
+
+
 def orchestrator_function(context: df.DurableOrchestrationContext):
 
     # 1つ目のアクティビティ関数を呼び出す
