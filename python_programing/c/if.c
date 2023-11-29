@@ -23,6 +23,14 @@ int main(void){
   for(i=0; i<100; i++){
     printf("Hello\n");
   }
-
+  
+  for(int i = 0; i<100; i++){
+      if(i==16){
+        break; //今行っているloopを抜ける
+        //continue; //行っているloopの現在の繰り返しを飛ばす
+      }
+      printf("%d",i);
+  }
   return 0;
 }
+
